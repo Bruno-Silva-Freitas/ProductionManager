@@ -1,0 +1,73 @@
+@baseUrl = http://localhost:5080
+
+### Cadastre os dados; ajuste os IDs nas chamadas seguintes aos retornados pela API.
+POST {{baseUrl}}/api/produtos
+Content-Type: application/json
+X-Perfil: Programador
+
+{ "pn": "00045872", "nome": "Tampa Superior" }
+
+###
+POST {{baseUrl}}/api/maquinas
+Content-Type: application/json
+X-Perfil: Programador
+
+{ "codigo": "INJ-04", "nome": "Injetora 04" }
+
+###
+POST {{baseUrl}}/api/ordens
+Content-Type: application/json
+X-Perfil: Programador
+
+{ "of": "000254879", "produtoId": 1, "maquinaId": 1, "quantidadePlanejada": 10000 }
+
+###
+POST {{baseUrl}}/api/maquinas/1/programacao
+Content-Type: application/json
+X-Perfil: Programador
+
+{ "inicioSemana": "2026-09-16", "ordemIds": [1] }
+
+###
+GET {{baseUrl}}/api/maquinas/1/programacao
+
+### Consulte sempre a versão atual antes de alterar.
+GET {{baseUrl}}/api/ordens/1
+
+###
+POST {{baseUrl}}/api/ordens/1/metas-hora
+Content-Type: application/json
+X-Perfil: Operador
+
+{ "inicio": "2026-09-16T23:00:00-03:00", "fim": "2026-09-17T00:00:00-03:00", "metaPlanejada": 500, "versao": 1 }
+
+###
+GET {{baseUrl}}/api/ordens/1/metas-hora
+
+###
+PATCH {{baseUrl}}/api/ordens/1/status
+Content-Type: application/json
+X-Perfil: Operador
+
+{ "status": "Producao", "versao": 2 }
+
+###
+POST {{baseUrl}}/api/metas-hora/1/apontamento
+Content-Type: application/json
+X-Perfil: Operador
+
+{ "quantidadeBoa": 480, "refugo": 10, "versao": 3 }
+
+### Correção explícita, mantendo o mesmo apontamento.
+PUT {{baseUrl}}/api/metas-hora/1/apontamento
+Content-Type: application/json
+X-Perfil: Operador
+
+{ "quantidadeBoa": 525, "refugo": 5, "versao": 4 }
+
+### Enviar somente após confirmação na interface.
+POST {{baseUrl}}/api/ordens/1/finalizar
+Content-Type: application/json
+X-Perfil: Operador
+
+{ "versao": 5 }

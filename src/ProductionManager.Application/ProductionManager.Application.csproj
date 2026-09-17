@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../ProductionManager.Domain/ProductionManager.Domain.csproj" />
+  </ItemGroup>
+</Project>
