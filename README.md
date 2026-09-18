@@ -271,3 +271,10 @@ Estado atual do backend:
 O ProductionManager aplica conceitos de orientação a objetos, encapsulamento, regras de domínio, arquitetura em camadas, APIs, persistência, concorrência e testes automatizados a um cenário industrial real.
 
 A próxima etapa é construir o front-end consumindo os contratos HTTP já disponibilizados pelo backend.
+
+
+## Integração contínua
+
+O projeto utiliza GitHub Actions para validar automaticamente cada push na `main` e cada pull request direcionado a ela. O fluxo restaura as dependências, compila a solução em modo Release e executa a suíte de testes automatizados.
+
+Isso ajuda a impedir que alterações sejam integradas quando quebram a compilação ou os testes.
