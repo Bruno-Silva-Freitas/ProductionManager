@@ -1,5 +1,7 @@
 # ProductionManager
 
+[![CI](https://github.com/Bruno-Silva-Freitas/ProductionManager/actions/workflows/ci.yml/badge.svg)](https://github.com/Bruno-Silva-Freitas/ProductionManager/actions/workflows/ci.yml)
+
 Sistema de gerenciamento de produção industrial desenvolvido em **C# e .NET 10**. O projeto organiza a programação semanal das máquinas e acompanha a produção por meio de **Ordens de Fabricação (OF)**, **PNs** e **Meta Hora**.
 
 O objetivo é centralizar a programação enviada para cada máquina e permitir que o operador acompanhe metas, registre peças boas e refugos e visualize automaticamente os indicadores de **qualidade** e **eficiência**.
